@@ -1,0 +1,8 @@
+name: mmoDamage
+main: mmo.Damage.MMODamage
+version: 0.1
+website: https://github.com/mmoMinecraftDev/mmoDamage
+authors: [Rycochet <rycochet@rycochet.com>,Sebastian Mayr]
+depend: [mmoCore]
+
+description: Damage interface for mmoMinecraft
