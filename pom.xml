@@ -66,7 +66,7 @@
 	<name>mmoDamage</name>
 	<artifactId>mmoDamage</artifactId>
 	<groupId>mmo.Damage.MMODamage</groupId>
-	<url>http://forums.bukkit.org/threads/31054/</url>
+	<url>http://github.com/mmoMinecraftDev/mmoDamage</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
