@@ -33,35 +33,37 @@ import org.bukkit.plugin.PluginManager;
  * @author Sebastian Mayr
  */
 public class MMODamage extends MMOPlugin {
+
 	protected static Server server;
 	protected static PluginManager pm;
 	protected static MMO mmo;
 
 	@Override
-    public void onDisable() {
-	    
-    }
+	public void onDisable() {
+	}
 
 	@Override
-    public void onEnable() {
-	    server = this.getServer();
-	    pm = server.getPluginManager();
-	    mmo = MMO.create(this);
-	    
-	    pm.registerEvent(Type.ENTITY_DAMAGE, new MMODamageListener(), Priority.High, this);
-    }
-	
+	public void onEnable() {
+		server = this.getServer();
+		pm = server.getPluginManager();
+		mmo = MMO.create(this);
+
+		pm.registerEvent(Type.ENTITY_DAMAGE, new MMODamageListener(), Priority.High, this);
+	}
+
 	class MMODamageListener extends EntityListener implements Listener {
-		
+
 		@Override
-		public void onEntityDamage(EntityDamageEvent evt) {
-			if (evt.isCancelled()) return;
-			
-			MMODamageEventEvent dmgEvt = new MMODamageEventEvent(evt);
-			
+		public void onEntityDamage(EntityDamageEvent event) {
+			if (event.isCancelled()) {
+				return;
+			}
+
+			MMODamageEventEvent dmgEvt = new MMODamageEventEvent(event);
+
 			pm.callEvent(dmgEvt);
 			if (dmgEvt.isCancelled()) {
-				evt.setCancelled(true);
+				event.setCancelled(true);
 			}
 		}
 	}
