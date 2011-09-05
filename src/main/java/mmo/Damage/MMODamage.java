@@ -42,11 +42,6 @@ public class MMODamage extends MMOPlugin {
 	public void loadConfiguration(Configuration cfg) {
 	}
 
-	@Override
-	public void onDisable() {
-		super.onDisable();
-	}
-
 	class MMODamageListener extends EntityListener implements Listener {
 
 		@Override
