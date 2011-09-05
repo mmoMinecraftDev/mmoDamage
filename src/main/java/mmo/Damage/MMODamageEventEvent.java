@@ -16,7 +16,7 @@
  */
 package mmo.Damage;
 
-import mmo.Core.MMODamageEvent;
+import mmo.Core.events.MMODamageEvent;
 
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
