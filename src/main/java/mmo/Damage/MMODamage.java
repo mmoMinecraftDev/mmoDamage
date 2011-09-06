@@ -16,16 +16,14 @@
  */
 package mmo.Damage;
 
-import mmo.Core.MMO;
 import mmo.Core.MMOPlugin;
 
-import org.bukkit.Server;
 import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event.Type;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityListener;
-import org.bukkit.plugin.PluginManager;
+import org.bukkit.util.config.Configuration;
 
 /**
  * Controls the damage between entities.
@@ -34,21 +32,14 @@ import org.bukkit.plugin.PluginManager;
  */
 public class MMODamage extends MMOPlugin {
 
-	protected static Server server;
-	protected static PluginManager pm;
-	protected static MMO mmo;
-
 	@Override
-	public void onDisable() {
+	public void onEnable() {
+		super.onEnable();
+		pm.registerEvent(Type.ENTITY_DAMAGE, new MMODamageListener(), Priority.High, this);
 	}
 
 	@Override
-	public void onEnable() {
-		server = this.getServer();
-		pm = server.getPluginManager();
-		mmo = MMO.create(this);
-
-		pm.registerEvent(Type.ENTITY_DAMAGE, new MMODamageListener(), Priority.High, this);
+	public void loadConfiguration(Configuration cfg) {
 	}
 
 	class MMODamageListener extends EntityListener implements Listener {
