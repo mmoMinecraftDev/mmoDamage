@@ -16,14 +16,13 @@
  */
 package mmo.Damage;
 
+import java.util.BitSet;
 import mmo.Core.MMOPlugin;
-
+import mmo.DamageAPI.MMODamageEvent;
 import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event.Type;
-import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityListener;
-import org.bukkit.util.config.Configuration;
 
 /**
  * Controls the damage between entities.
@@ -33,29 +32,24 @@ import org.bukkit.util.config.Configuration;
 public class MMODamage extends MMOPlugin {
 
 	@Override
-	public void onEnable() {
-		super.onEnable();
-		pm.registerEvent(Type.ENTITY_DAMAGE, new MMODamageListener(), Priority.High, this);
+	public BitSet mmoSupport(BitSet support) {
+		support.set(MMO_NO_CONFIG);
+		return support;
 	}
 
 	@Override
-	public void loadConfiguration(Configuration cfg) {
-	}
+	public void onEnable() {
+		super.onEnable();
+		pm.registerEvent(Type.ENTITY_DAMAGE, new EntityListener() {
 
-	class MMODamageListener extends EntityListener implements Listener {
-
-		@Override
-		public void onEntityDamage(EntityDamageEvent event) {
-			if (event.isCancelled()) {
-				return;
+			@Override
+			public void onEntityDamage(EntityDamageEvent event) {
+				if (event.isCancelled()) {
+					return;
+				}
+				MMODamageEvent dmgEvt = new MMODamageEvent(event);
+				pm.callEvent(dmgEvt);
 			}
-
-			MMODamageEventEvent dmgEvt = new MMODamageEventEvent(event);
-
-			pm.callEvent(dmgEvt);
-			if (dmgEvt.isCancelled()) {
-				event.setCancelled(true);
-			}
-		}
+		}, Priority.High, this);
 	}
 }
