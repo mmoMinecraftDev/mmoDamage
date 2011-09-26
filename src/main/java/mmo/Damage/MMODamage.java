@@ -16,8 +16,8 @@
  */
 package mmo.Damage;
 
-import java.util.BitSet;
 import mmo.Core.MMOPlugin;
+import mmo.Core.util.EnumBitSet;
 import mmo.DamageAPI.MMODamageEvent;
 import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event.Type;
@@ -32,8 +32,8 @@ import org.bukkit.event.entity.EntityListener;
 public class MMODamage extends MMOPlugin {
 
 	@Override
-	public BitSet mmoSupport(BitSet support) {
-		support.set(MMO_NO_CONFIG);
+	public EnumBitSet mmoSupport(EnumBitSet support) {
+		support.set(Support.MMO_NO_CONFIG);
 		return support;
 	}
 
