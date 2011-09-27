@@ -18,7 +18,6 @@ package mmo.Damage;
 
 import mmo.Core.MMOPlugin;
 import mmo.Core.util.EnumBitSet;
-import mmo.DamageAPI.MMODamageEvent;
 import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event.Type;
 import org.bukkit.event.entity.EntityDamageEvent;
@@ -47,7 +46,7 @@ public class MMODamage extends MMOPlugin {
 				if (event.isCancelled()) {
 					return;
 				}
-				MMODamageEvent dmgEvt = new MMODamageEvent(event);
+				MMODamageEventAPI dmgEvt = new MMODamageEventAPI(event);
 				pm.callEvent(dmgEvt);
 			}
 		}, Priority.High, this);
