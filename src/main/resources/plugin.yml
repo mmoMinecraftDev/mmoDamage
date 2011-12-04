@@ -3,6 +3,6 @@ main: mmo.Damage.MMODamage
 version: 1.0
 website: https://github.com/mmoMinecraftDev/mmoDamage
 authors: [Rycochet <rycochet@rycochet.com>,Sebastian Mayr]
-depend: [mmoCore]
+depend: [Spout,mmoCore]
 
 description: Damage interface for mmoMinecraft
