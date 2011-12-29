@@ -1,6 +1,6 @@
 name: mmoDamage
 main: mmo.Damage.MMODamage
-version: 1.0
+version: 1.1
 website: https://github.com/mmoMinecraftDev/mmoDamage
 authors: [Rycochet <rycochet@rycochet.com>,Sebastian Mayr]
 depend: [Spout,mmoCore]
