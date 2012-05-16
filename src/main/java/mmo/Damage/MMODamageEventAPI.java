@@ -1,7 +1,7 @@
 /*
- * This file is part of mmoMinecraft (https://github.com/mmoMinecraftDev).
+ * This file is part of mmoDamage <http://github.com/mmoMinecraftDev/mmoDamage>.
  *
- * mmoMinecraft is free software: you can redistribute it and/or modify
+ * mmoDamage is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
@@ -18,6 +18,7 @@ package mmo.Damage;
 
 import mmo.Core.DamageAPI.MMODamageEvent;
 import mmo.Core.DamageAPI.MMODamageType;
+
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
@@ -28,7 +29,6 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
 public class MMODamageEventAPI extends Event implements MMODamageEvent {
-
 	private MMODamageType damageType;
 	private Entity attacker;
 	private Entity realAttacker;

@@ -1,8 +1,8 @@
 name: mmoDamage
-main: mmo.Damage.MMODamage
-version: 1.1
-website: https://github.com/mmoMinecraftDev/mmoDamage
-authors: [Rycochet <rycochet@rycochet.com>,Sebastian Mayr]
-depend: [Spout,mmoCore]
+version: ${releaseVersion} b${buildNumber}
+description: Provides an easy interface for damage control.
+author: mmoMinecraftDev
+website: http://mmo.me.uk
 
-description: Damage interface for mmoMinecraft
+main: mmo.Damage.MMODamage
+depend: [Spout, mmoCore]

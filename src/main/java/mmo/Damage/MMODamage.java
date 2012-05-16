@@ -1,7 +1,7 @@
 /*
- * This file is part of mmoMinecraft (https://github.com/mmoMinecraftDev).
+ * This file is part of mmoDamage <http://github.com/mmoMinecraftDev/mmoDamage>.
  *
- * mmoMinecraft is free software: you can redistribute it and/or modify
+ * mmoDamage is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
@@ -18,6 +18,7 @@ package mmo.Damage;
 
 import mmo.Core.MMOPlugin;
 import mmo.Core.util.EnumBitSet;
+
 import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event.Type;
 import org.bukkit.event.entity.EntityDamageEvent;
@@ -29,7 +30,6 @@ import org.bukkit.event.entity.EntityListener;
  * @author Sebastian Mayr
  */
 public class MMODamage extends MMOPlugin {
-
 	@Override
 	public EnumBitSet mmoSupport(EnumBitSet support) {
 		support.set(Support.MMO_NO_CONFIG);
@@ -40,7 +40,6 @@ public class MMODamage extends MMOPlugin {
 	public void onEnable() {
 		super.onEnable();
 		pm.registerEvent(Type.ENTITY_DAMAGE, new EntityListener() {
-
 			@Override
 			public void onEntityDamage(EntityDamageEvent event) {
 				if (event.isCancelled()) {
