@@ -19,17 +19,13 @@ package mmo.Damage;
 import mmo.Core.MMOPlugin;
 import mmo.Core.util.EnumBitSet;
 
-import org.bukkit.event.Event.Priority;
-import org.bukkit.event.Event.Type;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntityListener;
 
-/**
- * Controls the damage between entities.
- * 
- * @author Sebastian Mayr
- */
-public class MMODamage extends MMOPlugin {
+public class MMODamage extends MMOPlugin implements Listener {
+
 	@Override
 	public EnumBitSet mmoSupport(EnumBitSet support) {
 		support.set(Support.MMO_NO_CONFIG);
@@ -39,15 +35,15 @@ public class MMODamage extends MMOPlugin {
 	@Override
 	public void onEnable() {
 		super.onEnable();
-		pm.registerEvent(Type.ENTITY_DAMAGE, new EntityListener() {
-			@Override
-			public void onEntityDamage(EntityDamageEvent event) {
-				if (event.isCancelled()) {
-					return;
-				}
-				MMODamageEventAPI dmgEvt = new MMODamageEventAPI(event);
-				pm.callEvent(dmgEvt);
-			}
-		}, Priority.High, this);
+		pm.registerEvents(this, this); }			
+
+	@EventHandler(priority = EventPriority.HIGH)
+	public void onEntityDamage(EntityDamageEvent event) {			
+		if (event.isCancelled()) {
+			return;
+		}
+		MMODamageEventAPI dmgEvt = new MMODamageEventAPI(event);
+		pm.callEvent(dmgEvt);
 	}
+
 }

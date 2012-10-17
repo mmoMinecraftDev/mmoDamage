@@ -24,11 +24,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.entity.Tameable;
 import org.bukkit.event.Event;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
-public class MMODamageEventAPI extends Event implements MMODamageEvent {
+public class MMODamageEventAPI extends MMODamageEvent implements Listener {
 	private MMODamageType damageType;
 	private Entity attacker;
 	private Entity realAttacker;
@@ -36,8 +38,9 @@ public class MMODamageEventAPI extends Event implements MMODamageEvent {
 	private Entity realDefender;
 	private EntityDamageEvent evt;
 
+	
 	public MMODamageEventAPI(EntityDamageEvent evt) {
-		super("mmoDamageEvent");
+		super();
 		this.evt = evt;
 
 		// Get the defender
@@ -103,7 +106,7 @@ public class MMODamageEventAPI extends Event implements MMODamageEvent {
 	public Entity getRealAttacker() {
 		return realAttacker;
 	}
-
+	
 	@Override
 	public Entity getDefender() {
 		return defender;
