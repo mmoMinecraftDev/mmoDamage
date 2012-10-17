@@ -5,7 +5,7 @@
 	<name>mmoDamage</name>
 	<groupId>mmo.Damage</groupId>
 	<artifactId>mmoDamage</artifactId>
-	<version>1.1-SNAPSHOT</version>
+	<version>1.2-SNAPSHOT</version>
 	<url>http://github.com/mmoMinecraftDev/mmoDamage</url>
 	<description>Provides an easy interface for damage control.</description>
 
